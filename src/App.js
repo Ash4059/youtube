@@ -1,10 +1,17 @@
 import './App.css';
+import Header from './Component/Header';
+import Body from './Component/Body';
+import { Provider } from 'react-redux';
+import store from './Utils/store';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='bg-red-500'>Hi Namaste react</h1>
-    </div>
+    <Provider store={ store }>
+      <div className="App">
+        <Header />
+        <Body />
+      </div>
+    </Provider>
   );
 }
 
