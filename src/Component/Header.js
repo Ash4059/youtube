@@ -1,16 +1,25 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { toggleMenu } from '../Utils/appSlice';
 
 const Header = () => {
+
+    const dispatch = useDispatch();
+
+    const toggleSideBar = () => {
+        dispatch(toggleMenu())
+    }
+
   return (
     <div className='grid grid-flow-col p-2 shadow-md content-evenly'>
         <div className='flex col-span-1'>
-            <span className='self-center cursor-pointer'>
+            <span className='self-center cursor-pointer mx-2' onClick={()=>{toggleSideBar()}}>
                 <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
             </span>
             <img 
                 src='https://logos-world.net/wp-content/uploads/2020/04/YouTube-Logo-2017-present.jpg' 
                 alt='logo' 
-                className='h-14 cursor-pointer'
+                className='h-14 cursor-pointer mx-4'
             />
         </div>
         <div className='col-span-10 flex justify-center'>
