@@ -22,6 +22,21 @@ const appRouter = createBrowserRouter([{
   ]
 }])
 
+const headerRouter = createBrowserRouter([{
+  path : '/',
+  element : <Header />,
+  children : [
+    {
+      path : '/',
+      element : <MainContainer />
+    },
+    {
+      path : 'watch',
+      element : <Watchpage />
+    }
+  ]
+}])
+
 function App() {
   return (
     <Provider store={ store }>
