@@ -20,7 +20,6 @@ const Header = () => {
     }else{
         getSearchSuggestion();
         dispatch(cachedResult({[searchQuery] : suggestions}))
-        console.log(searchCache);
     }
   },200);
 
