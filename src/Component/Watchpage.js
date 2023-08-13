@@ -4,6 +4,7 @@ import { closeMenu } from "../Utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import { YOUTUBE_VIDEO_API_BY_ID } from "../Utils/constant";
 import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 
 const Watchpage = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const Watchpage = () => {
       "snippet": {
           "title": "",
           "thumbnails": {
-              "high": {}
+              "maxres": {}
           },
           "channelTitle": "",
           "defaultAudioLanguage": "en"
@@ -43,24 +44,29 @@ const Watchpage = () => {
   };
 
   return (
-    <div className="px-8 mt-8">
-      <div className="px-2 mx-2 rounded-lg shadow-lg">
-        <img
-          width={"880px"}
-          className="rounded-lg"
-          src={thumbnails.high.url}
-          alt={description}
-        />
-        <ul>
-          <li className="font-bold py-2">{title}</li>
-          <li>{channelTitle}</li>
-          <li>
-            {likeCount}
-            <span className="font-bold"> Likes</span>
-            &emsp;{viewCount}
-            <span className="font-bold"> views</span>
-          </li>
-        </ul>
+    <div className="w-full px-8 mt-8">
+      <div className="flex">
+        <div className="px-2 mx-2 rounded-lg shadow-lg">
+          <img
+            width={"1280px"}
+            className="rounded-lg"
+            src={thumbnails.maxres.url}
+            alt={description}
+          />
+          <ul>
+            <li className="font-bold py-2">{title}</li>
+            <li>{channelTitle}</li>
+            <li>
+              {likeCount}
+              <span className="font-bold"> Likes</span>
+              &emsp;{viewCount}
+              <span className="font-bold"> views</span>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-auto">
+          <LiveChat />
+        </div>
       </div>
       <CommentsContainer />
     </div>
