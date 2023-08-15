@@ -26,7 +26,7 @@ const LiveChat = () => {
 
   return (
     <div 
-      className="h-[720px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll"
+      className="h-[720px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse"
     >
       {chatMessages.map((message) => (
         <ChatMessage

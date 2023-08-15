@@ -4,15 +4,6 @@ import { smoothScrolling } from '../Utils/smoothScroll';
 const ChatMessage = ({name,message}) => {
   let refElement = useRef(null);
 
-  useEffect(()=>{
-    if(refElement.current){
-      const timer = smoothScrolling(refElement.current.parentElement,refElement.current);
-      return () => {
-        clearInterval(timer);
-      }
-    }
-  },[]);
-
   return (
     <div 
       className='flex items-center px-2 shadow-sm my-2 ml-2 w-[512px]'
