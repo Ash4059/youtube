@@ -1,13 +1,8 @@
-import React, { useEffect, useRef } from 'react'
-import { smoothScrolling } from '../Utils/smoothScroll';
-
 const ChatMessage = ({name,message}) => {
-  let refElement = useRef(null);
 
   return (
     <div 
       className='flex items-center px-2 shadow-sm my-2 ml-2 w-[512px]'
-      ref={refElement}
     >
         <span className="self-center cursor-pointer">
           <svg

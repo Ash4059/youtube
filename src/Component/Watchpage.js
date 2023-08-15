@@ -5,28 +5,27 @@ import { useSearchParams } from "react-router-dom";
 import { YOUTUBE_VIDEO_API_BY_ID } from "../Utils/constant";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
+import VideoPlayer from "./VideoPlayer";
 
 const Watchpage = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
-  const [data, setData] = useState(
-    {
-      "snippet": {
-          "title": "",
-          "thumbnails": {
-              "maxres": {}
-          },
-          "channelTitle": "",
-          "defaultAudioLanguage": "en"
+  const [data, setData] = useState({
+    snippet: {
+      title: "",
+      thumbnails: {
+        maxres: {},
       },
-      "statistics": {
-          "viewCount": "",
-          "likeCount": "",
-          "favoriteCount": "",
-          "commentCount": ""
-      }
-  }
-  );
+      channelTitle: "",
+      defaultAudioLanguage: "en",
+    },
+    statistics: {
+      viewCount: "",
+      likeCount: "",
+      favoriteCount: "",
+      commentCount: "",
+    },
+  });
 
   const { snippet, statistics } = data;
   const { channelTitle, title, description, thumbnails } = snippet;
@@ -47,12 +46,7 @@ const Watchpage = () => {
     <div className="w-full px-8 mt-8">
       <div className="flex">
         <div className="px-2 mx-2 rounded-lg shadow-lg">
-          <img
-            width={"1280px"}
-            className="rounded-lg"
-            src={thumbnails.maxres.url}
-            alt={description}
-          />
+          <VideoPlayer thumbnails={thumbnails} description={description} />
           <ul>
             <li className="font-bold py-2">{title}</li>
             <li>{channelTitle}</li>
